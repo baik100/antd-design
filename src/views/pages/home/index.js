@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {ContentContainer} from "../../layout/Layout.Styled";
 
 const Container = styled.div`
 
@@ -11,9 +12,9 @@ function Home (props) {
 
     return (
 
-        <Container>
+        <ContentContainer>
             Home
-        </Container>
+        </ContentContainer>
     )
 }
 

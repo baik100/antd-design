@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import {connect} from 'react-redux';
 import Action from "../../redux/action";
 import { Menu, Icon } from 'antd';
-import {navigate} from "../../helpers/HistoryHelper";
+import {HISTORY, navigate} from "../../helpers/HistoryHelper";
+import {withRouter} from "react-router-dom";
 const { SubMenu } = Menu;
 
 const Container = styled.div`
@@ -14,6 +15,7 @@ function Header (props) {
     
     const {
         dispatch,
+        location,
     } = props;
     
     const handleMenu = (e) => {
@@ -26,14 +28,14 @@ function Header (props) {
         <Container>
 
             <Menu mode="horizontal"
-                  selectedKeys={['']}
+                  selectedKeys={[location.pathname]}
                   onClick={handleMenu}>
 
-                <Menu.Item key="home" to={'/'}>
+                <Menu.Item key="/" to={'/'}>
                     Home
                 </Menu.Item>
 
-                <Menu.Item key="quake" to={'/quake'}>
+                <Menu.Item key="/quake" to={'/quake'}>
                     Quake
                 </Menu.Item>
 
@@ -42,4 +44,4 @@ function Header (props) {
     )
 }
 
-export default connect(state => ({...state}), dispatch => ({dispatch}))(Header);
+export default connect(state => ({...state}), dispatch => ({dispatch}))(withRouter(Header));
