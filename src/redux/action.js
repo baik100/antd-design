@@ -5,7 +5,7 @@ const Action = {
 
     Creators: {
         updateState: (payload) => ({
-            type: Action.Type.UPDATE_STATE,
+            type: Action.Types.UPDATE_STATE,
             payload
         }),
     }
